@@ -7,7 +7,7 @@
     <title>043-ajax-test.html</title>
 </head>
 <body>
-    <!-- ajax 封装方法 -->
+    <!-- ajax 简单请求跨域 -->
     <input type="button" id="btn" value="请求数据">
     <div id="html"></div>
 </body>
@@ -58,41 +58,9 @@
         }
     }
     oBtn.onclick = function(){
-        /*
-        ajax(
-            'post',
-            'http://127.0.0.1:3000',
-            '{"name":"晓猪","age":18,"des":"大水牛"}',
-            function(data){
-                var obj = JSON.parse(data);
-                console.log(obj);
-                if(obj.des){
-                    document.getElementById('html').innerHTML = obj.des;
-                }
-            },
-            function(err){
-                console.log(err);
-            }
-        );
-        
         ajax(
             'get',
-            'http://127.0.0.1:3000',
-            'name=tom',
-            function(data){
-                var obj = JSON.parse(data);
-                console.log(obj);
-                if(obj.des){
-                    document.getElementById('html').innerHTML = obj.des;
-                }
-            },
-            function(err){
-                console.log(err);
-            }
-        );*/
-        ajax(
-            'get',
-            'http://127.0.0.1:3000/043-data.json',
+            'http://127.0.0.1:3001/043-data.json',
             '',
             function(data){
                 var obj = JSON.parse(data);
@@ -116,7 +84,7 @@
                 }
             },
             function(err){
-                console.log(err);
+                console.log(err)
             }
         );
     }
