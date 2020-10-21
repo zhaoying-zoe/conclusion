@@ -1,0 +1,6 @@
+1.  服务端可以设置跨域信息 例:res.setHeader('Access-Control-Allow-Origin','*')  *：表示所有源都可以访问。
+2.  服务端可以设置发送cookie相关 例:res.setHeader(Access-Control-Allow-Credentials,true)该字段可选,它的值是一个布尔值，表示是否允许发送Cookie。
+3.  服务端可以设置允许getResponseHeader方法获取的字段 例:res.setHeader("Access-Control-Expose-Headers",字段值),可选设置,表示允许客户端通过getResponseHeader方法获取的字段。
+    3.1  客户端如果要 获取响应头字段信息 服务端可根据需要设置是否允许访问。
+    3.2  一共有6个默认的字段信息(CORS方式下默认只能获取6个基础字段：Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma)，这6个字段信息不需要设置 允许访问，只需要设置值就可以了。
+    3.3  可以在服务端自定义响应头字段信息(例：res.setHeader("Zhuzhu-test",'Zhuzhu-test');)  如若客户端想要访问，必须给自定义响应头字段信息设置允许访问。
