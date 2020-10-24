@@ -1,0 +1,15 @@
+{
+  "name": "02-ajax",
+  "version": "1.0.0",
+  "description": "重点是格式与参数\r     ```\r     行      POST /s?ie=utf-8  HTTP/1.1\r     头      Host: baidu.com\r             Cookie: name=name\r             Content0-Type: application/x-www-form-urlencoded\r             User-Agent: chrome 83\r     空行    \r     体      username=admin&password=admin\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
