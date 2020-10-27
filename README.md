@@ -1,2 +1,1 @@
-# class6-T conlusion
-for class6
+# Conlusion
