@@ -8,6 +8,25 @@
     <title>页面</title>
 </head>
 <body>
-    this is a file;
+    <h1>Request Page</h1>
+    <button>request get</button>
+    <button>request post</button>
+    <button>request put</button>
+    <button>request delete</button>
 </body>
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+    $('button').eq(0).on('click',function(){
+        $.ajax({
+            url:'/',
+            type:'GET',
+            success(data){
+                console.log(data);
+            },
+            error(err){
+                console.log(err);
+            }
+        })
+    })
+</script>
 </html>

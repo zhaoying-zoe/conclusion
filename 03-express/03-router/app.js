@@ -7,6 +7,10 @@ const app = express();
 // 处理静态资源
 app.use(express.static('public'));
 
+app.get('/',(req,res)=>{
+    res.send('response get');
+})
+
 app.listen(port,()=>{
     console.log('serve is running at 127.0.0.1:3000')
 })
