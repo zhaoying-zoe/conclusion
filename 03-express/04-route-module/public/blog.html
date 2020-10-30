@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面</title>
+</head>
+<body>
+    <h1>Blog Page</h1>
+    <button>get</button>
+    <button>post</button>
+    <button>put</button>
+    <button>delete</button>
+</body>
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+    $('button').eq(0).on('click',function(){
+        $.ajax({
+            url:'/blog',
+            type:'GET',
+            success(data){
+                console.log(data);
+            },
+            error(err){
+                console.log(err);
+            }
+        })
+    })
+        $('button').eq(1).on('click',function(){
+        $.ajax({
+            url:'/blog',
+            type:'POST',
+            success(data){
+                console.log(data);
+            },
+            error(err){
+                console.log(err);
+            }
+        })
+    })
+        $('button').eq(2).on('click',function(){
+        $.ajax({
+            url:'/blog',
+            type:'PUT',
+            success(data){
+                console.log(data);
+            },
+            error(err){
+                console.log(err);
+            }
+        })
+    })
+        $('button').eq(3).on('click',function(){
+        $.ajax({
+            url:'/blog',
+            type:'DELETE',
+            success(data){
+                console.log(data);
+            },
+            error(err){
+                console.log(err);
+            }
+        })
+    })
+</script>
+</html>
