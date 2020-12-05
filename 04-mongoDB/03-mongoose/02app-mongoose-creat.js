@@ -81,13 +81,26 @@ db.once('open', function() {
     }
     // console.log(users);
 
-
+/*
+    // 新增
     UserModel.insertMany(users)
     .then((docs) =>{
         console.log('create success::',docs);
     })
     .catch(err => {
         console.log('create err::',err)
+    })
+
+ */
+
+
+    //获取去重后的值
+    UserModel.distinct('name',(err,docs)=>{
+        if(err){
+            console.log('find err::',err)
+        }else{
+             console.log('find success ::',docs)
+        }
     })
 
 

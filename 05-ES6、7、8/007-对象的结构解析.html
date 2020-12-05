@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>007-对象的结构解析.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const obj = {
+        name:'tom1',
+        friend:{
+            name:'bob1'
+        }
+    }
+
+    let obj1 = {...obj};// 对象的浅copy
+    obj1.name = 'tom2';// 只改变了obj1的name
+    obj1.friend.name = 'bob2';// 会改变原obj的friend.name (类似于obj和obj1的friend.name都的指针指向了同一个地址)
+    console.log(obj);// name:tom
+    console.log(obj1);// name:bob
+
+    const img = new Image();// img标签
+    console.log(img);//  <img src=​"./​img/​0.gif">​
+    img.onload = function(){// img标签加载完毕执行(dom事件:异步程序)
+        console.log('img success');
+    }
+    img.onerr = function(){
+        console.log('img error');
+    }
+    img.src = './img/0.gif';
+    console.log('after get img');
+</script>
+</html>

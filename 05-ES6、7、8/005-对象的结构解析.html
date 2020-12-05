@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>005-对象的结构解析.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var options = {
+        page:2,
+        model:3,
+        query:4,
+        sort:5,
+        projection:6
+    }
+    // 等号左边对象中的属性的值是真正被赋值的变量名,如果属性的值省略,属性的值和属性的名称相同
+    let { page,model,query,sort,projection:projection1 } = options;
+    console.log(page,model,query,sort,projection1);
+</script>
+</html>
