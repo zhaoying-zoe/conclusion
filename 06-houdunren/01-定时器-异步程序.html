@@ -10,6 +10,9 @@
 			padding: 0;
 		}
 		div{
+			position: absolute;
+			top: 8px;
+			left: 8px;
 			width: 300px;
 			height: 300px;
 			background-color: green;
@@ -22,12 +25,36 @@
 </body>
 <script type="text/javascript">
 
-	function intarval(callback,delay = 50){
+	function intarval(callback,delay = 100){
 		let id = setInterval(() => { callback(id) },delay)
 	}
 
 	intarval( (timeId) => {
-		const div = document.querySelector('div')
+		const div = document.querySelector('div');
+		let left = parseInt(getComputedStyle(div).left);
+		div.style.left = left + 10 + 'px';
+		if(left >= 300){
+			clearInterval(timeId);
+			intarval((timeId) => {
+				const div = document.querySelector('div');
+				let width = parseInt(getComputedStyle(div).width);
+				div.style.width = width - 10 + 'px';
+				if(width <= 0){
+					clearInterval(timeId);
+				}
+			})
+		}
 	})
+	/*
+		三、和 style 的异同
+		getComputedStyle 和 element.style 的相同点就是二者返回的都是 CSSStyleDeclaration 对象，
+			取相应属性值得时候都是采用的 CSS 驼峰式写法，均需要注意 float 属性。
+		而不同点就是：
+		element.style 读取的只是元素的内联样式，即写在元素的 style 属性上的样式；而 getComputedStyle 读取的样式是最终样式，包括了内联样式、嵌入样式和外部样式。
+		element.style 既支持读也支持写，我们通过 element.style 即可改写元素的样式。而 getComputedStyle 仅支持读并不支持写入。我们可以通过使用 getComputedStyle 读取样式，通过 element.style 修改样式
+		我们可以通过使用 getComputedStyle 读取样式，通过 element.style 修改样式。
+	*/
+	
+	console.log('this is a setInterval');
 </script>
 </html>
