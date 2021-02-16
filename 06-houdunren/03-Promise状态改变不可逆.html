@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>03-Promise状态改变不可逆.html</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		new Promise((resolve,reject) => {// 微任务队列
+			// 1.Promise状态一旦改变就无法再次更改
+			reject('失败');// 会执行
+			resolve('成功');// 不会执行 理由见 1.
+		}).then(msg=>{
+			console.log('msg' + msg);
+		},(error)=>{
+			console.log('error' + error);
+		})
+		console.log('houdunren.com');// 同步任务
+	</script>
+</html>

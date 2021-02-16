@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>10-generator函数.html</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function * gen(x){
+			console.log(x);
+			console.log('gen start');
+			yield x + 10;
+		}
+		const g = gen(5);
+		// console.log(g);
+		console.log(g.next());
+	</script>
+</html>

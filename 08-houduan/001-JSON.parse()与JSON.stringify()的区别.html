@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>JSON.parse()与JSON.stringify()的区别</title>
+	</head>
+	<body>
+		<p>
+			JSON.parse()【从一个字符串中解析出json对象】
+		</p>
+
+		<p>
+			例子：
+		</p>
+
+		<p>
+			//定义一个字符串
+		</p>
+
+		<p>
+			var data='{"name":"goatling"}'
+		</p>
+
+		<p>
+			//解析对象​
+		</p>
+
+		<p>
+			JSON.parse(data)
+		</p>
+
+		<p>
+			结果是：
+		</p>
+
+		<p>
+			​name:"goatling"
+		</p>
+
+		<p>
+			JSON.stringify()【从一个json对象中解析出字符串】
+		</p>
+
+		<p>
+			var data={name:'goatling'}
+		</p>
+
+		<p>
+			JSON.stringify(data)
+		</p>
+
+		<p>
+			结果是：
+		</p>
+
+		<p>
+			'{"name":"goatling"}'
+		</p>
+	</body>
+</html>

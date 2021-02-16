@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		new Promise((resolve,reject) => {// 微任务队列
+			// 同步任务
+			setTimeout(()=>{// 宏任务队列
+				console.log('宏任务1');	// 先执行1
+				resolve();				// 后执行
+				console.log('宏任务2');	// 先执行2
+			},0)
+		}).then(value=>{
+			console.log('success');
+		})
+		console.log('houdunren.com');// 同步任务
+	</script>
+</html>

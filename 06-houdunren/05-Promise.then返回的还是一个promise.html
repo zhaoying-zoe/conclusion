@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>04-Promise里then的用法.html</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		new Promise((resolve,reject) => {// 微任务队列
+			// 1.Promise状态一旦改变就无法再次更改
+			reject('涨价了,买不起');// 会执行
+		})
+		.then(null, a => {// 如果then方法后面只处理 失败 则也可不写成功的函数
+			console.log(`处理了失败的标志,${a}`);
+		})
+		.then(null, reason => {// 两个失败的函数可以一同执行
+			console.log(reason);
+		})
+	</script>
+</html>
