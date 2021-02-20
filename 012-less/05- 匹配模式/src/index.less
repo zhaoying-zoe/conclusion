@@ -1,0 +1,40 @@
+// 语法：匹配模式
+
+/* 共通样式 ↓  @_ : 表示无论第一个参数输入什么 这个样式都可以被匹配到 */
+.triangle(@_,@Width,@Color){
+    width: 0;
+    height: 0;
+    border-style: solid;
+    overflow: hidden;
+}
+
+/* 不同方向的三角样式 ↓4个 */
+
+/* 上三角 */
+.triangle(top,@Width,@Color){
+    border-width: @Width;
+    border-color: @Color transparent transparent transparent;
+}
+/* 右三角 */
+.triangle(right,@Width,@Color){
+    border-width: @Width;
+    border-color: transparent @Color transparent transparent;
+}
+/* 下三角 */
+.triangle(bottom,@Width,@Color){
+    border-width: @Width;
+    border-color: transparent transparent @Color transparent;
+}
+/* 左三角 */
+.triangle(left,@Width,@Color){
+    border-width: @Width;
+    border-color: transparent transparent transparent @Color;
+}
+
+
+
+/* 盒子样式  */
+.box1{
+    /* 通过输入不同的第一个参数,进而匹配到不同方向的三角样式 */
+    .triangle(left,100px,#ff6700);
+}

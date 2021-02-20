@@ -1,0 +1,30 @@
+.fs(@fs){
+    /* less运算 : less中常见的运算有：+(加) -(减) *(乘) /(除) font-size: @val / 10px; */
+    font-size: @fs*10;
+}
+
+.box1{
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+    background-color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    /* 嵌套 : 嵌套就是在选择器中嵌套选择器,相当于css中后代选择器。 */
+    .box2{
+        /* 垂直居中对齐 */
+        position: absolute;
+        margin: auto;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        /*  */
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        /* important关键字 : 在混合模式后添加!important关键字,会为混合模式中的所有样式添加!important */
+        .fs(2.5px)!important;
+    }
+}

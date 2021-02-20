@@ -1,0 +1,23 @@
+//定义设计稿对应的机型根元素的fontsize
+@rem:36;
+
+//根据设计稿中的像素单位,设计稿的根元素的fontsize来计算rem的值
+.rem(@attr,@px1){
+    // 有问题:
+    // Error evaluating function `unit`: the first argument to unit must be a number. Have you forgotten parenthesis?
+    @{attr}:unit(@px1 / @rem,rem);
+}
+.rem(@attr,@px1,@px2){
+    @{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3){
+    @{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3,@px4){
+    @{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem) unit(@px4 / @rem,rem);
+}
+
+.box1{
+    // .rem(font-size,72);
+    .rem(padding,40);
+}

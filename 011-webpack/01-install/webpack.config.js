@@ -12,6 +12,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');// 自动清理�
 */
 module.exports = {// 导出对象
     mode: 'development', //mode用来指定环境,可以是development(开发环境) 或者 production(生产环境),这两个环境下的构建目标存在着巨大差异，建议为每个环境编写彼此独立的 webpack 配置
+    devtool: 'inline-source-map',
     // 入口
     // entry: './src/index.js',//指定需要打包的入口文件  单入口
     entry: {

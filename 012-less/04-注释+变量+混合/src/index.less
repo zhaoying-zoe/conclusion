@@ -1,0 +1,53 @@
+// 语法0 注释
+//我是注释一 编译被删除
+/*我是注释二 编译被保留*/
+
+// 语法1 变量： @变量名 : 值
+@width : 250px;
+@height : 250px;
+@background : #ff6700;
+
+// 语法2 1.基本混合
+
+.box1{
+    width: @width;
+    height: @height;
+    background-color: @background;
+}
+
+.box2{
+    //基本混合,直接把选择器写在另外一个选择中
+    .box1;
+    margin-top: 10px;
+}
+
+// 语法2 2.带参数的混合  相当于函数的用法
+//定义混合↓
+.border-radius(@r){
+    -webkit-border-radius:@r;
+    -ms-border-radius:@r;
+    -o-border-radius:@r;
+    border-radius: @r; 
+}
+.box3{
+    .box1;
+    margin-top: 10px;
+    //使用混合
+    .border-radius(10px);
+}
+
+// 语法2 3.带默认参数的混合
+//定义混合↓
+.border-radius-default(@r:30px){
+    -webkit-border-radius:@r;
+    -ms-border-radius:@r;
+    -o-border-radius:@r;
+    border-radius: @r; 
+}
+
+.box4{
+    .box1;
+    margin-top: 10px;
+    //使用混合
+    .border-radius-default;
+}
