@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不同语法的事件的写法</title>
+</head>
+<body>
+    <h2>原生js事件写法</h2>
+    <p>
+        onclick绑定方式: <br>
+        oDiv.onclick = function(){}
+    </p>
+
+    <h2>jQuery事件写法</h2>
+    <p>
+        事件名字用小写字母：<br/>
+        $('.div').on('click',function(){})
+    </p>
+
+    <h2>React事件写法</h2>
+    <p>
+        驼峰事件名字：<br>
+        onClick={this.handleAdd.bind(this)}
+    </p>
+
+    <h2>Vue事件名字的写法</h2>
+    <p>
+        待补充
+    </p>
+</body>
+</html>
