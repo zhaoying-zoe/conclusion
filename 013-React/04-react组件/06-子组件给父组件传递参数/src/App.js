@@ -1,21 +1,21 @@
 // 自定义组件首字母大写
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 // 引入子组件
 import UserInfo from './UserInfo';
 
 
 // 方法一:定义一个类
-class App extends Component{
-    constructor(props){
+class App extends Component {
+    constructor(props) {
         super(props);
         this.state = {
-            age:19
+            age: 19
         }
     }
     //在父组件中定义需要传递的方法
-    handleAddAge(age){
+    handleAddAge(age) {
         this.setState({
-            age:age
+            age: age
         })
     }
     render() {
