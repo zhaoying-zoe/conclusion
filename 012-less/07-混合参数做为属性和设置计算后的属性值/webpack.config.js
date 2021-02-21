@@ -39,6 +39,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
+                            // strictMath: false,// 严格模式
                         }
                     },
                     {
