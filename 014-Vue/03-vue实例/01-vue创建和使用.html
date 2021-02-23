@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" ref="app1">{{message}}</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'this is a vue',
+        },
+    })
+    // vue的属性
+    console.log(vm.$data);// 可以访问vue实例中的data
+    console.log(vm.$el);// 获取vue中绑定实例的dom  Vue 实例使用的根 DOM 元素。
+    console.log(vm.$refs);// 一个对象，获取带有ref属性的所有DOM元素和组件实例。
+
+    // vue的方法
+    vm.$watch('message', () => {
+        // message数据发生变化时  触发
+        console.log('data has changed');
+    })
+    vm.$destroy();// 销毁实例, 无法监听实例上的方法 data数据发生改变 但不会给变页面数据
+</script>
+
+</html>

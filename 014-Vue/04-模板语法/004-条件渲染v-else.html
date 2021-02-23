@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>004-条件渲染v-else.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="number" v-model="score">
+        <p>你的成绩是:{{score}}</p>
+        <P v-if="score >= 90">优秀</P>
+        <P v-if="score >= 80">良好</P>
+        <P v-if="score >= 60">及格</P>
+        <!-- v-else 要配合v-if一起来使用 -->
+        <P v-else>不及格</P>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            score: 0,
+        }
+    })
+</script>
+
+</html>

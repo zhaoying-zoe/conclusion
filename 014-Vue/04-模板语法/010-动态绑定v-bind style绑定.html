@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010-动态绑定v-bind style绑定.html</title>
+</head>
+<style>
+    p {
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <p style="border-bottom: 5px #ff6700 solid; color: blue;">class="active error"</p>
+        <!--基本绑定-->
+        <p :style="strStyle">:style="strStyle"</p>
+        <!--对象语法-->
+        <p :style="{borderBottom:'5px #ff6700 solid',color:'blue'}">:style="{borderBottom:'5px #ff6700
+            solid',color:'blue'}"</p>
+        <p :style="{borderBottom:borderBottom,color:color}">:style="{borderBottom:borderBottom,color:color}"</p>
+        <p :style="objclass">:style="objclass"</p>
+        <!--数组语法-->
+        <p :style="[{borderBottom: '5px #ff6700 solid'},{color: 'blue'}]">:style="[{borderBottom: '5px #ff6700
+            solid'},{color: 'blue'}]"</p>
+        <p :style="[{borderBottom:borderBottom},{color:color}]">:style="[{borderBottom:borderBottom},{color:color}"]
+        </p>
+        <p :style="arrStyle">:style="arrStyle"</p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            strStyle: 'border-bottom: 5px #ff6700 solid ; color: blue ;',
+            borderBottom: '5px #ff6700 solid',
+            color: 'blue',
+            objclass: {
+                borderBottom: '5px #ff6700 solid',
+                color: 'blue',
+            },
+            arrStyle: [
+                {
+                    borderBottom: '5px #ff6700 solid'
+                },
+                {
+                    color: 'blue'
+                }
+            ]
+        }
+    })
+</script>
+
+</html>

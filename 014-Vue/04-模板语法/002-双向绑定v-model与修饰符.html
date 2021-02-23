@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>002-双向绑定v-model与修饰符.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>v-model="message":把输入框的值与data数据的参数绑定</h1>
+        <p>{{message}}</p>
+        <p>
+            <input type="text" v-model="message">
+        </p>
+        <p>
+        <h2>.lazy修饰符:input框在change时不会改变数据,在离开输入框时会改变数据</h2>
+        <input type="text" v-model.lazy="message">
+        </p>
+        <h2>
+            .number修饰符:在input框输入结束后,会把 字符串类型的数字 转化成 数字类型的数字 可以在控制台打印显示
+        </h2>
+        <input type="number" v-model.number="message">
+        </p>
+        <h2>.trim修饰符:去掉输入框前后的空白符</h2>
+        <input type="text" v-model.trim="message">
+        </p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello vue',
+            ppp: '<h1>我是标题</h1>'
+        }
+    })
+</script>
+
+</html>

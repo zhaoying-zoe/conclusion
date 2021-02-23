@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>009-动态绑定v-bind class绑定.html</title>
+</head>
+<style>
+    #app {
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .active {
+        color: blue;
+    }
+
+    .error {
+        border-bottom: 5px #ff6700 solid;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <p class="active error">class="active error"</p>
+        <!--基本绑定-->
+        <p :class="strClass">:class="strClass"</p>
+        <!--对象语法-->
+        <p :class="{active:true,error:true}">:class="{active:true,error:true}"</p>
+        <p :class="{active:isActive,error:isError}">:class="{active:isActive,error:isError}"</p>
+        <p :class="objclass">:class="objclass"</p>
+        <!--数组语法-->
+        <p :class="['active','error']">:class="[' active','error']"</p>
+        <p :class="[isActive?'active':'',isError?'error':'']">:class="[isActive?'active':'',isError?'error':'']"</p>
+        <p :class="arrClass">:class="arrClass"</p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            strClass: 'active error',
+            isActive: true,
+            isError: true,
+            objclass: {
+                active: true,
+                error: true,
+            },
+            arrClass: [
+                'active',
+                'error',
+            ]
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>006-条件渲染v-show.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="number" v-model="score">
+        <p>你的成绩是:{{score}}</p>
+        <!-- v-show:带有v-show的dom都会渲染到页面,此时 不 符合条件的dom的display="none" -->
+        <P v-show="score >= 60">及格</P>
+        <P v-show="score < 60">不及格</P>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            score: 0,
+        }
+    })
+</script>
+
+</html>

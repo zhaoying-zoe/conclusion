@@ -1,0 +1,11 @@
+1 state：保存内部数据
+
+2 使用:
+    2 初始化
+    2 改变 this.setState()
+3. 优点
+    3 不用操作Dom
+4. state改变注意事项
+    1 不要直接改state ： this.state.content = ev.target.value;
+    2 state的改变会引起页面数据的变化 → 数据驱动
+    3 state的更新是异步的

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>001-插值语法和指令.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+        <!-- v-once 只会执行一次,data数据在改变后,message都不会再改变 -->
+        <p v-once>这个将不会改变：{{message}}</p>
+        <p>{{ppp}}</p>
+        <!-- v-html 会把html代码编译好再加载到dom -->
+        <p v-html="ppp"></p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello vue',
+            ppp: '<h1>我是标题</h1>'
+        }
+    })
+</script>
+
+</html>

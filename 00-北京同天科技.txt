@@ -1,0 +1,64 @@
+1. virtualdom
+
+所谓的 virtualdom ,也就是虚拟节点。
+它通过JS的Object对象模拟DOM中的节点,然后再通过特定的render方法将其渲染成真实的DOM节点。
+
+其次我们还得知道一点,那就是virtualdom做的一件事情到底是啥。
+我们知道的对于页面的重新渲染一般的做法是通过操作dom,重置innerHTML去完成这样一件事情。
+而virtualdom则是通过JS层面的计算,返回一个patch对象,即补丁对象,在通过特定的操作解析patch对象,完成页面的重新渲染
+
+
+
+一、H5
+    1 说说你对语义化的理解？
+        1、在去掉和丢失样式时能够让页面呈现清晰的结构
+        2、有利于SEO，有利于爬虫抓取
+        3、便于团队开发和维护
+    2 文档类型的作用(DOCTYPE)
+        文档类型定义(Document Type Definition),作用是告诉浏览器, 这个网页是用哪一个版本的HTML规范来编写的.
+        浏览器就能够按照这个规范来正确的编译/解析/渲染我们的网页
+
+二、 CSS
+    1 选择器
+
+    2 CSS三大特性 ： 
+        继承性、层叠性、优先级
+    3 布局
+        1 table表格布局
+        2 盒模型布局
+        3 flexbox布局
+            给父元素添加display:flex属性
+            给子元素添加flex:1属性
+        4 float布局（重点）
+            给父元素添加伪类 去除浮动
+            .container2::after{
+                content: 'aaa';
+                clear:both;
+                display: block;
+                visibility: hidden;
+                height:0;
+            }
+        5 inline-block布局
+            给子元素(块状元素)设置display:inline-block
+            给父元素的font-size设置为0
+    4 盒模型
+
+    5 CSS3
+
+    6 移动端适配
+        1 meta标签
+            //获取meta节点
+            var metaNode = document.querySelector('meta[name=viewport]');
+
+            //定义设计稿宽度为375
+            var designWidth = 375;
+
+            //计算当前屏幕的宽度与设计稿比例
+            var scale = document.documentElement.clientWidth/designWidth;
+
+            //通过设置meta元素中content的initial-scale值达到移动端适配
+            meta.content="initial-scale="+scale+",minimum-scale="+scale+",maximum-scale="+scale+",user-scalable=no";
+            2 
+    7 
+
+1. 传统方法处理异步 ： 回调函数,监听事件

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>007-列表渲染v-for.html</title>
+</head>
+<style>
+    th,
+    td {
+        padding-left: 5px;
+        padding-right: 5px;
+        border: 1px solid #000;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <table>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>爱好</th>
+            <th>等级</th>
+            <!-- 把v-for绑定到需要循环的dom上 -->
+            <tr v-for="person in persons">
+                <td>{{person.name}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.hobby}}</td>
+                <td>{{person.level}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            persons: [
+                {
+                    name: '臭猪', age: 88, hobby: '看电视剧,一直看,没完没了的', level: '弟弟级别'
+                },
+                {
+                    name: '晓雪', age: 78, hobby: '看电视剧,看一晚上', level: '弟中弟级别'
+                },
+            ]
+        }
+    })
+</script>
+
+</html>

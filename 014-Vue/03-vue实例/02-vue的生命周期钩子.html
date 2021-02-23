@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-vue的生命周期钩子.html</title>
+</head>
+
+<body>
+    <div id="app" ref="elem">{{message}}</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'this is a vue',
+        },
+        // vue生命周期: vue实例从创建到销毁的过程
+        // vue生命周期有8个
+        // 创建实例前
+        beforeCreate() {// 实例刚在内存中创建,未初始化data和事件
+            console.log('beforeCreate..');
+            console.log('this.message:::', this.message);// undefined 创建前无法获取data数据
+            console.log('this.$el:::', this.$el);// undefined
+            console.log('this.$refs.elem', this.$refs.elem);// undefined
+        },
+        created() {// 实例在内存中创建,data数据已经初始化,未编译模板
+            console.log('created...');
+            console.log('this.message:::', this.message);// this is a vue
+            console.log('this.$el:::', this.$el);// undefined
+            console.log('this.$refs.elem', this.$refs.elem);// undefined
+        },
+        beforeMount() {// 编译好模板,并将模板挂载到dom 
+            console.log('beforeMount...');
+            console.log('this.message:::', this.message);// this is a vue
+            console.log('this.$el:::', this.$el);// <div id="app" ref="app1">{{message}}</div>
+            console.log('this.$refs.elem', this.$refs.elem);// undefined
+        },
+        mounted() {// 实例加载后
+            console.log('mount...');
+            console.log('this.message:::', this.message);// this is a vue
+            console.log('this.$el:::', this.$el);// <div id="app">this is a vue</div>
+            console.log('this.$refs.elem', this.$refs.elem);// <div id="app">this is a vue</div>
+        },
+        beforeUpdate() {// 实例更新前
+            console.log('beforeUpdate...');
+        },
+        updated() {// 实例更新后
+            console.log('updated...')
+        },
+        // 当在控制台调用 `vm.$destroy()`方法时,会执行`beforeDestroy`和`destroyed`方法。
+        // 此时无论怎么更改data数据,页面的结构和数据都不会做更改
+        beforeDestroy() {
+            console.log('beforeDestroy...')
+        },
+        destroyed() {
+            console.log('destroyed...')
+        }
+    })
+</script>
+
+</html>
