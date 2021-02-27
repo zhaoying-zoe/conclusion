@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>012-利用原始DOM事件阻止冒泡.html</title>
+    <style>
+        .groundfather {
+            width: 700px;
+            height: 700px;
+            background-color: rgb(50, 56, 54);
+            margin: 100px auto 0px auto;
+        }
+
+        .father {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background: chocolate;
+        }
+
+        .son {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="groundfather">
+            <div class="father">
+                <div class="son"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {},
+        // 实例定义方法
+        methods: {
+            groundfather() {
+                console.log('groundfather click');
+            },
+            father() {
+                console.log('father click');
+            },
+            son() {
+                console.log('son click');
+            }
+        }
+    })
+</script>
+
+</html>
