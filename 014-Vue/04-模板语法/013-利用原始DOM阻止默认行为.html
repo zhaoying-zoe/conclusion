@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>013-利用原始DOM阻止默认行为.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <a @click="goTaobao('Vue',$event)" href="https://taobao.com">去淘宝</a>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        // 实例定义方法
+        methods: {
+            goTaobao(msg, ev) {
+                // 利用原生js阻止浏览器默认行为 ：1.用浏览器自带的ev参数 2.在调用函数时传入$event参数(必须这样写),传参时的参数顺序不能搞错
+                console.log(msg);
+                ev.preventDefault();// 阻止浏览器默认行为(浏览器自带的功能)
+                console.log('goTaobao click');
+            },
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-创建组件模版-组件的定义和注册分离.html</title>
+</head>
+
+<body>
+    <div id="app1">
+        <!--使用组件-->
+        <button-div></button-div>
+        <button-div></button-div>
+    </div>
+    <!-- 把html模板抽离出来,放在一个script标签中,便于管理代码 -->
+    <!-- 和script标签相似,只不过用的是template标签 -->
+    <template id="count-div">
+        <button @click="clickAdd">我被点击了{{count}}次</button>
+    </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    // 1. 定义组件
+    const ButtonDiv = Vue.extend({
+        // 组件里的data是一个函数 函数内部return一个对象
+        data() {
+            return {
+                count: 0,
+            }
+        },
+        // 组件内部可以写方法
+        methods: {
+            clickAdd() {
+                this.count = this.count + 1;
+            }
+        },
+        // 传入模板x-template的id
+        template: '#count-div',
+    })
+    // 2. 注册组件
+    Vue.component('button-div', ButtonDiv)
+    const vm1 = new Vue({
+        el: '#app1',
+    })
+</script>
+
+</html>

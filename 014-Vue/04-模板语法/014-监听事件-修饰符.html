@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>012-利用原始DOM事件阻止冒泡.html</title>
+    <title>014-监听事件-修饰符.html</title>
     <style>
         .groundfather {
             position: relative;
@@ -43,9 +43,14 @@
 
 <body>
     <div id="app">
+        <!-- .stop: 阻止冒泡事件 -->
+        <!-- .self: 冒泡到此dom时,事件不执行,自身点击时才执行事件;但是不会阻止冒泡 -->
+        <!-- .once: 自身事件只触发一次,但不会阻止事件冒泡 -->
         <div v-on:click="clickGroundfather" class="groundfather">
-            <div v-on:click="clickFather($event,'father')" class="father">
-                <div @click="clickSon($event,'son')" class="son"></div>
+            <div v-on:click="clickFather('father')" class="father">
+                <!-- <div v-on:click.stop="clickFather('father')" class="father"> -->
+                <!-- <div @click.stop="clickSon()" class="son"></div> -->
+                <div @click.capture="clickSon()" class="son"></div>
             </div>
         </div>
     </div>
@@ -59,15 +64,10 @@
             clickGroundfather() {
                 console.log('groundfather click');
             },
-            clickFather(ev, msg) {
-                console.log(msg);
-                ev.stopPropagation();// 阻止事件冒泡
+            clickFather() {
                 console.log('father click');
             },
-            clickSon(ev, msg) {
-                // 利用原生js阻止事件冒泡 ：1.用浏览器自带的ev参数 2.在调用函数时传入$event参数(必须这样写),传参时的参数顺序不能搞错
-                console.log(msg, ev);
-                ev.stopPropagation();// 阻止事件冒泡
+            clickSon() {
                 console.log('son click');
             }
         }

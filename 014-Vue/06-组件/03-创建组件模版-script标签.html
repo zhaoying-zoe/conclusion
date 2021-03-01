@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-创建组件模版-script标签.html</title>
+</head>
+
+<body>
+    <div id="app1">
+        <!--使用组件-->
+        <button-div></button-div>
+        <button-div></button-div>
+    </div>
+    <!-- 把html模板抽离出来,放在一个script标签中,便于管理代码 -->
+    <script type="text/x-template" id="count-div">
+        <button @click="clickAdd">我被点击了{{count}}次</button>
+    </script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    // vue.component 接收一个字符串和对象 字符串是表示组件名称 可以当做标签写在html页面里
+    Vue.component('button-div', {
+        // 组件里的data是一个函数 函数内部return一个对象
+        data() {
+            return {
+                count: 0,
+            }
+        },
+        // 组件内部可以写方法
+        methods: {
+            clickAdd() {
+                this.count = this.count + 1;
+            }
+        },
+        // 传入模板x-template的id
+        template: '#count-div',
+    })
+    const vm1 = new Vue({
+        el: '#app1',
+    })
+</script>
+
+</html>

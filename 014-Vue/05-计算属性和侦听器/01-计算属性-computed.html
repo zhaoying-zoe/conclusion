@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-计算属性-computed.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>firstName:{{firstName}}</div>
+        <div>lastName:{{lastName}}</div>
+        <div>fullName:{{firstName + lastName}}</div>
+        <div>fullName:{{getFullName()}}</div>
+        <div>fullName:{{fullname}}</div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'zhao',
+            lastName: 'ying',
+        },
+        methods: {
+            getFullName() {
+                return this.firstName + this.lastName;
+            }
+        },
+        // 计算属性:键值对的形式,函数名是键,return的是值,并且是动态属性:实例的data数据发生变化,计算属性的值也会发生相应的改变
+        computed: {
+            // 计算属性默认只有 getter
+            fullname() {
+                return this.firstName + this.lastName;
+            }
+        }
+    })
+</script>
+
+</html>

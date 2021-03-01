@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-计算属性-get和set.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="fullname">
+        <div>firstName:{{firstName}}</div>
+        <div>lastName:{{lastName}}</div>
+        <div>fullName:{{fullname}}</div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'zhao',
+            lastName: 'ying',
+        },
+        // 计算属性:键值对的形式,函数名是键,return的是值,并且是动态属性:实例的data数据发生变化,计算属性的值也会发生相应的改变
+        computed: {
+            fullname: {
+                // 通过和input绑定值,每次改变input的值后,通过 计算属性 的set方法,从而改变data的值
+                get() {
+                    return this.firstName + ' ' + this.lastName;
+                },
+                set(val) {
+                    // join() 方法用于把数组中的所有元素放入一个字符串。
+                    // split() 方法用于把一个字符串分割成字符串数组。
+                    // slice() 方法可提取字符串的某个部分，并以新的字符串返回被提取的部分。
+                    let names = val.split(' ');// split: 字符串转数组
+                    this.firstName = names[0];
+                    this.lastName = names.slice(1).join(' ');
+                    console.log(names);
+                },
+            }
+        }
+    })
+</script>
+
+</html>

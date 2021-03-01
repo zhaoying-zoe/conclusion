@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>015-监听事件-修饰符-capture.html</title>
+</head>
+<style>
+    .groundfather {
+        position: relative;
+        width: 700px;
+        height: 700px;
+        background-color: rgb(50, 56, 54);
+        margin: 100px auto 0px auto;
+    }
+
+    .father {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: chocolate;
+    }
+
+    .son {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: black;
+    }
+</style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- .capture: 在dom事件捕获阶段就执行 -->
+        <!-- 点击son元素时: clickGroundfather最先执行,clickFather第二执行 -->
+        <div v-on:click.capture="clickGroundfather" class="groundfather">
+            <div v-on:click.capture="clickFather()" class="father">
+                <div @click="clickSon()" class="son"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        // 实例定义方法
+        methods: {
+            clickGroundfather() {
+                console.log('groundfather click');
+            },
+            clickFather() {
+                console.log('father click');
+            },
+            clickSon() {
+                console.log('son click');
+            }
+        }
+    })
+</script>
+
+</html>
