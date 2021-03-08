@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-组件传值-给子组件传值.html</title>
+</head>
+
+<body>
+    <div id="app1">
+        <!-- msg1:表示props里接收的参数的名称 msg2:表示父传给子组件的参数名称 -->
+        <data-div :msg1="msg2"></data-div>
+    </div>
+    <template id="count-div">
+        <!-- msg1: 使用props接收的参数名称 -->
+        <div>给子组件传值,{{ msg1 }}</div>
+    </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    // 1. 定义组件
+    const DataDiv = Vue.extend({
+        // 传入模板x-template的id
+        template: '#count-div',
+        // 用props接收父组件传来的值
+        // props: ['msg1'],// 方法一
+        props: {
+            msg1: {
+                type: String,
+                // 如果子组件没有绑定的值,则此值生效
+                default: 'hello 2',
+            }
+        }
+    })
+    // 2. 注册组件
+    Vue.component('data-div', DataDiv)
+    const vm1 = new Vue({
+        el: '#app1',
+        data: {
+            // 传值给子组件
+            msg2: 'hello',
+        }
+    })
+</script>
+
+</html>
