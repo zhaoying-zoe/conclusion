@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00-注册组件.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <father-component></father-component>
+    </div>
+    <!--父组件模版-->
+    <template id="father-component">
+        <div>
+            <p>this is father component,score is:{{score}}</p>
+            <!--在父组件中通过动态绑定给子组件传递数据-->
+            <son-component :score="score"></son-component>
+        </div>
+    </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    //定义一个父组件
+    const FatherComponent = Vue.extend({
+        template: '#father-component',
+        data() {
+            return {
+                //父组件中定义一个需要传递的数据
+                score: 88
+            }
+        },
+    })
+
+    const vm1 = new Vue({
+        el: '#app',
+        // 注册父组件
+        components: {
+            'father-component': FatherComponent
+        }
+    })
+</script>
+
+</html>
