@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>055-输入文本并添加到文本域中</title>
+</head>
+<body>
+	<input type="text" id="box" value=""/>
+	<input type="button" id="btn" value="按钮" />
+	<div id="app">
+		
+	</div>
+</body>
+<script type="text/javascript">
+	// 获取三个元素
+	const oBox = document.getElementById('box');
+	const oBtn = document.getElementById('btn');
+	const oApp = document.getElementById('app');
+	
+	oBtn.onclick = function (){
+		// 获取输入框中的值
+		const val = oBox.value;
+		// 生成新节点
+		const oDiv = document.createElement('div');
+		// 给文本内容添加输入框中的值
+		oDiv.innerHTML = val;
+		// 把新节点添加到div中
+		oApp.appendChild(oDiv);
+		// console.log(val);
+	}
+</script>
+</html>

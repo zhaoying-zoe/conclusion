@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>051-无序列表鼠标移入高亮移出还原.html</title>
+	</head>
+	<style type="text/css">
+		*{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			width: 100%;
+			height: 20px;
+			background-color: #ccc;
+			margin-top: 5px;
+		}
+		.active{
+			background-color: #ff6700;
+		}
+	</style>
+	<body>
+		<ul id="app">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		// 获取父节点
+		const oFather = document.getElementById('app');
+		// 获取子节点 不包含文本节点
+		const aSon = oFather.children;
+		// 循环子节点
+		for(let i = 0;i<aSon.length;i++){
+			// 鼠标移入 给子元素添加类名
+			aSon[i].onmouseenter = function(){
+				this.className = 'active';
+			}
+			// 鼠标移出 给子元素移除类名
+			aSon[i].onmouseleave = function(){
+				this.className = '';
+			}
+		}
+	</script>
+</html>

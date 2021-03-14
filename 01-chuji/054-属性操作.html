@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>054-属性操作.html</title>
+</head>
+<body>
+	<div id="app">
+		臭猪不爱学习
+	</div>
+	<input type="text" name="猪猪不爱学习" id="box" value="臭猪不爱学习" />
+	<input type="button" id="btn" value="点击按钮让臭猪学习" />
+	<textarea rows="5" cols="30" id="txt" class="active">
+		
+	</textarea>
+</body>
+<script type="text/javascript">
+	// 获取输入框
+	const oInput = document.getElementById('box');
+	// 获取按钮
+	const oBtn = document.getElementById('btn');
+	// 获取大输入框
+	const oTxt = document.getElementById('txt');
+	
+	// 按钮点击事件
+	oBtn.onclick = function(){
+		// 获取属性
+		const val = oInput.getAttribute('value');
+		// console.log(document.getElementById('app').innerHTML);
+		// 设置属性
+		oTxt.setAttribute('class','zhuzhu');
+		// 移除属性
+		oTxt.removeAttribute('id')
+	}
+	
+</script>
+</html>

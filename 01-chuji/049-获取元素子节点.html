@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index.html</title>
+</head>
+<body>
+	<ul id="app">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	// 获取节点
+	const oDiv = document.getElementById('app');
+	console.log(oDiv.childNodes[0].nodeType == 3);
+	console.log(oDiv.children);
+</script>
+</html>

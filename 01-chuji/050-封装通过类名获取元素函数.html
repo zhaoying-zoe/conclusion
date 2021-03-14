@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>050-封装通过类名获取元素函数</title>
+</head>
+<style type="text/css">
+	li{
+		list-style: none;
+	}
+</style>
+<body>
+	<ul id="app">
+		<li class="son">1</li>
+		<li>2</li>
+		<li class="son">3</li>
+		<li>4</li>
+		<li class="son">5</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	/*
+	原理: 	通过父元素获取所有的子元素
+			把符合类名的子元素放入数组
+	*/
+	// 获取父元素
+	let oUl = document.getElementById('app');
+	function getChild(parentNode,oClass){
+		// 获取所有子元素 包含文本节点
+		// console.log(parentNode);
+		const aLi = parentNode.childNodes;
+		// console.log(aLi);
+		// 定义空数组 用来存符合标准的元素
+		const arr = new Array();
+		for(let i = 0;i<aLi.length;i++){
+			// 如果元素的className == oClass 
+			if(aLi[i].className == oClass){
+				// 给数组添加元素
+				arr.push(aLi[i]);
+			}
+		}
+		return arr;
+	}
+	
+	const result = getChild(oUl,'son');
+	console.log(result);
+</script>
+</html>
