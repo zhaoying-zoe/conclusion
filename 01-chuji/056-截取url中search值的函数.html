@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>056-截取url中search值的函数.html</title>
+</head>
+<body>
+	2.实现一个获取当前页面链接search值的函数。（如下例子中，输入key1输出value1）
+	例：’http://test.com/index?key1=value1&key2=value2’
+</body>
+<script type="text/javascript">
+	var url = 'http://test.com/index?key1=value1&key2=value2';
+	let key1 = 'key1';
+	function getData(key1){
+		if(key1 = 'key1'){
+			let str1 = url.split("=");
+			// console.log(str1);
+			let str2 = str1[1];
+			// console.log(str2);
+			str3 = str2.split("&");
+			return str3[0];
+		}
+	}
+	let result =  getData(key1);
+	console.log(result);
+	
+	
+	/*
+	function  Dog(name)  {  
+		this.name  =  name
+	}
+	Dog.bark  =  function()  {
+	    console.log(this.name  +  '  says  woof')
+	}	
+	let  fido  =  new  Dog('fido')
+	fido.bark()
+	
+	
+	function  greet(person)  {
+	    if  (person  ==  {  name:  'amy'  })  {
+	        return  'hey  amy'
+	    }  else  {
+	        return  'hey  arnold'
+	    }
+	}
+	greet({  name:  'amy'  })
+
+
+	var a=1;
+	function fun1(){
+		console.log(a);
+	}
+	function fun2(){
+		console.log(a);
+		var a=2;
+		console.log(a);
+	}
+	fun1();
+	fun2();
+	console.log(a);
+	*/
+
+	var a=1;
+	console.log(1);
+	setTimeout(function () {
+		console.log(2);
+	},0);
+	function fun() {
+		console.log(3);
+		setTimeout(function () {
+			console.log(4);
+		},0);
+		for (var i=0;i<10000;i++){
+			a++;
+		}
+		console.log(5);
+		return a;
+	};
+	console.log(6);
+	console.log(fun());
+
+
+</script>
+</html>
